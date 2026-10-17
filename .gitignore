@@ -1,4 +1,10 @@
 @*
+artifacts/*
+!artifacts/.gitkeep
+
+
+
+#de acá para abajo es la plantilla pedorra de github
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
