@@ -1,0 +1,31 @@
+Variable Original,Tipo Actual (Pandas),Nombre Propuesto,Tipo Correspondiente,Dtype Sugerido,Valores Nulos,Observaciones / Acción
+id_base_fractura_adjiv,int64,id_fractura,Categórico / Identificador,string,0,Clave primaria del registro. No operar matemáticamente.
+idpozo,int64,id_pozo,Categórico / Identificador,string,0,Identificador único de pozo (foreign key).
+sigla,object,pozo_sigla,Categórico nominal,category,0,Código o nombre identificador del pozo.
+cuenca,object,cuenca,Categórico nominal,category,0,Cuenca geológica (baja cardinalidad).
+areapermisoconcesion,object,area_concesion,Categórico nominal,category,0,Bloque o área hidrocarburífera de concesión.
+yacimiento,object,yacimiento,Categórico nominal,category,0,Yacimiento productivo.
+formacion_productiva,object,formacion_productiva,Categórico nominal,category,0,Formación objetivo (ej. Vaca Muerta).
+tipo_reservorio,object,tipo_reservorio,Categórico nominal,category,35,Convencional / No Convencional. Evaluar imputación de nulos.
+subtipo_reservorio,object,subtipo_reservorio,Categórico nominal,category,973,Shale / Tight. 973 nulos a tratar en Fase 3.
+longitud_rama_horizontal_m,float64,longitud_rama_horizontal_m,Numérico continuo,float64,0,Longitud perforada en metros.
+cantidad_fracturas,int64,etapas_fractura,Numérico discreto,int64,0,Cantidad de etapas estimuladas (stages).
+tipo_terminacion,object,tipo_terminacion,Categórico nominal,category,0,"Método técnico de terminación (Plug & Perf, etc.)."
+arena_bombeada_nacional_tn,float64,arena_nacional_tn,Numérico continuo,float64,0,Agente de sostén local inyectado (toneladas).
+arena_bombeada_importada_tn,float64,arena_importada_tn,Numérico continuo,float64,0,Agente de sostén importado inyectado (toneladas).
+agua_inyectada_m3,float64,agua_inyectada_m3,Numérico continuo,float64,0,Volumen de fluido base agua en metros cúbicos.
+co2_inyectado_m3,float64,co2_inyectado_m3,Numérico continuo,float64,0,Revisar si tiene varianza nula (solo ceros).
+presion_maxima_psi,float64,presion_maxima_psi,Numérico continuo,float64,0,Presión pico de tratamiento en psi.
+potencia_equipos_fractura_hp,float64,potencia_equipos_hp,Numérico continuo,float64,51,Potencia instalada en caballos de fuerza (51 nulos).
+fecha_inicio_fractura,object,fecha_inicio_fractura,Temporal,datetime64[ns],0,Convertir con pd.to_datetime.
+fecha_fin_fractura,object,fecha_fin_fractura,Temporal,datetime64[ns],0,Convertir con pd.to_datetime para medir duración.
+fecha_data,object,fecha_registro,Temporal,datetime64[ns],0,Fecha de reporte al sistema.
+anio_if,int64,anio_inicio_fractura,Numérico / Ordinal,int32,0,Redundante si se procesa fecha_inicio_fractura.
+mes_if,int64,mes_inicio_fractura,Categórico / Ordinal,int32,0,Redundante con la columna temporal.
+anio_ff,int64,anio_fin_fractura,Numérico / Ordinal,int32,0,Redundante si se procesa fecha_fin_fractura.
+mes_ff,int64,mes_fin_fractura,Categórico / Ordinal,int32,0,Redundante con la columna temporal.
+anio_carga,int64,anio_carga_sistema,Numérico / Ordinal,int32,0,Metadato administrativo de carga.
+mes_carga,int64,mes_carga_sistema,Categórico / Ordinal,int32,0,Metadato administrativo de carga.
+empresa_informante,object,operadora,Categórico nominal,category,0,Compañía operadora del pozo.
+mes,int64,mes_periodo,Categórico / Ordinal,int32,0,Posible columna redundante a contrastar.
+anio,int64,anio_periodo,Numérico / Ordinal,int32,0,Posible columna redundante a contrastar.
