@@ -9,6 +9,7 @@ El proyecto sigue las fases de CRISP-DM sobre el dataset público de **fractura 
 |---|---|
 | `fase_1_business_understanding.ipynb` … `fase_6_deploy.ipynb` | Las seis fases de CRISP-DM, en orden. |
 | `comun.py` | Rutas, carga de datos y especificación del modelo compartida por las fases. |
+| `app.py` | Dashboard de Streamlit (fase 6): estima el agua de una operación y la compara con los antecedentes históricos. |
 | `data/` | Dataset crudo descargado y `df_limpio.csv` (salida de la fase 3). |
 | `artifacts/` | Modelos y datos de prueba generados por la fase 4 (no se versionan). |
 | `backend/` | API de ejemplo para exponer predicciones (FastAPI). |
@@ -28,6 +29,14 @@ Las notebooks pueden abrirse desde cualquier directorio; las rutas de datos y ar
 3. **Fase 5** (`fase_5_evaluation.ipynb`) — evalúa contra la referencia leyendo esos artefactos.
 
 La fase 2 puede ejecutarse en cualquier momento para explorar datos; no es requisito de las anteriores. Para actualizar el CSV fuente hay que descomentar `descargar_dataset()` en la fase 2.
+
+### Dashboard (fase 6)
+
+Con la fase 4 ya ejecutada, el dashboard se levanta con:
+
+```bash
+streamlit run app.py
+```
 
 ## Flujo de datos
 

@@ -13,6 +13,9 @@ requests>=2.32
 jupyterlab>=4.0
 ipython>=8.25
 
+# Despliegue (app.py)
+streamlit>=1.32
+
 # Backend (backend/main.py)
 fastapi>=0.110
 uvicorn>=0.29
