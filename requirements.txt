@@ -1,0 +1,19 @@
+# Análisis y modelado (notebooks de las fases 1 a 6)
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+scikit-learn>=1.5
+matplotlib>=3.8
+seaborn>=0.13
+scikit-posthocs>=0.7
+joblib>=1.4
+requests>=2.32
+
+# Notebooks
+jupyterlab>=4.0
+ipython>=8.25
+
+# Backend (backend/main.py)
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.6
