@@ -37,7 +37,7 @@ def rangos_historicos(df: pd.DataFrame) -> pd.DataFrame:
 
 @st.cache_resource
 def cargar_modelos():
-	return importar_modelos("modelo", "referencia", "X_test", "y_test")
+	return importar_modelos("modelo", "referencia", "nombre_modelo", "X_test", "y_test")
 
 
 @st.cache_data
@@ -59,7 +59,7 @@ if not RUTA_DATOS_LIMPIOS.is_file() or not RUTA_ARTEFACTOS.is_dir():
 	)
 	st.stop()
 
-modelo, referencia, X_test, y_test = cargar_modelos()
+modelo, referencia, nombre_modelo, X_test, y_test = cargar_modelos()
 df = cargar_datos()
 rangos = rangos_historicos(df)
 
@@ -111,9 +111,10 @@ st.dataframe(rangos.round(0), use_container_width=True)
 with st.expander("Sobre el modelo y sus límites"):
 	mae_test = float(mean_absolute_error(y_test, modelo.predict(X_test)))
 	st.write(
-		f"Random Forest entrenado con {len(df):,} operaciones. "
-		f"En la prueba temporal su error absoluto promedio fue de **{mae_test:,.0f} m³**. "
-		"Las estimaciones sirven como referencia de antecedentes; no reemplazan "
-		"los cálculos de ingeniería ni la evaluación especializada. "
-		"El modelo no se generaliza a pozos verticales, tight ni otras cuencas."
+		f"Modelo **{nombre_modelo}** elegido por comparación con validación cruzada temporal "
+		f"sobre {len(df):,} operaciones. En la prueba temporal su error absoluto promedio fue de "
+		f"**{mae_test:,.0f} m³**. Las estimaciones sirven como referencia de antecedentes; no "
+		"reemplazan los cálculos de ingeniería ni la evaluación especializada. El modelo no se "
+		"generaliza a pozos verticales, tight ni otras cuencas, y una estimación lejos de los "
+		"antecedentes históricos es poco confiable."
 	)
