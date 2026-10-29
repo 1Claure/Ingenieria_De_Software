@@ -1,6 +1,9 @@
 @*
 artifacts/*
 !artifacts/.gitkeep
+# El modelo entrenado se versiona para que el dashboard corra sin reentrenar
+# (por ejemplo en Streamlit Community Cloud). Se regeneran con la fase 4.
+!artifacts/*.joblib
 
 
 

@@ -11,7 +11,7 @@ El proyecto sigue las fases de CRISP-DM sobre el dataset público de **fractura 
 | `comun.py` | Rutas, carga de datos y especificación del modelo compartida por las fases. |
 | `app.py` | Dashboard de Streamlit (fase 6): estima el agua de una operación y la compara con los antecedentes históricos. |
 | `data/` | Dataset crudo descargado y `df_limpio.csv` (salida de la fase 3). |
-| `artifacts/` | Modelos y datos de prueba generados por la fase 4 (no se versionan). |
+| `artifacts/` | Modelo entrenado y datos de prueba generados por la fase 4 (se versionan para poder desplegar el dashboard). |
 | `backend/` | API de ejemplo para exponer predicciones (FastAPI). |
 | `catedra/` | Consignas y ejemplo de la cátedra. |
 | `requirements.txt` | Dependencias del proyecto. |
@@ -37,6 +37,8 @@ Con la fase 4 ya ejecutada, el dashboard se levanta con:
 ```bash
 streamlit run app.py
 ```
+
+Para publicarlo con un link abierto se puede usar [Streamlit Community Cloud](https://share.streamlit.io): al entrar con GitHub, elegir este repositorio, la rama `george-branch` y `app.py` como archivo de entrada. Como el modelo entrenado está versionado en `artifacts/` y los datos en `data/`, no hace falta ejecutar nada más. Después de un `push`, el link se actualiza solo.
 
 ## Flujo de datos
 
