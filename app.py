@@ -130,6 +130,7 @@ st.markdown(
 	.dato {{ text-align: center; padding: 0.9rem 0.5rem; }}
 	.dato .valor {{ font-size: 1.9rem; font-weight: 700; color: {AZUL}; }}
 	.dato .rotulo {{ font-size: 0.85rem; color: #6B7A88; }}
+	div[data-testid="stWidgetLabel"] p {{ min-height: 1.5em; margin-bottom: 0; }}
 	.pie {{ color: #8A97A3; font-size: 0.82rem; margin-top: 2rem; }}
 	</style>
 	""",
@@ -282,23 +283,26 @@ def render_estimador():
 		"longitud_rama_horizontal_m": "Longitud de la rama horizontal (m)",
 		"cantidad_fracturas": "Cantidad de etapas de fractura",
 	}
+	unidades = {"longitud_rama_horizontal_m": "m", "cantidad_fracturas": "etapas"}
 	columnas = st.columns(len(ENTRADAS_NUMERICAS) + 1)
 	entradas = {}
 	for col_ui, variable in zip(columnas[: len(ENTRADAS_NUMERICAS)], ENTRADAS_NUMERICAS):
 		minimo = float(df[variable].min())
 		maximo = float(df[variable].max())
 		entradas[variable] = col_ui.number_input(
-			f"{etiquetas[variable]} — histórico: {fmt(minimo)} a {fmt(maximo)}",
+			etiquetas[variable],
 			min_value=0.0,
 			value=float(df[variable].median()),
 			step=1.0,
 		)
+		col_ui.caption(f"Histórico: {fmt(minimo)} a {fmt(maximo)} {unidades[variable]}")
 
 	categorias = sorted(df["tipo_terminacion"].dropna().unique())
 	mas_frecuente = df["tipo_terminacion"].mode().iloc[0]
 	entradas["tipo_terminacion"] = columnas[-1].selectbox(
 		"Tipo de terminación", categorias, index=categorias.index(mas_frecuente)
 	)
+	columnas[-1].caption(f"Histórico: {len(categorias)} categorías")
 
 	caso = pd.DataFrame([entradas])[ENTRADAS_NUMERICAS + ENTRADAS_CATEGORICAS]
 	fuera_de_rango = [v for v in ENTRADAS_NUMERICAS if not (df[v].min() <= entradas[v] <= df[v].max())]
