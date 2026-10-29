@@ -104,3 +104,50 @@ def importar_modelos(*nombres):
 		return objetos[0]
 
 	return tuple(objetos)
+
+
+def entrenar_modelo_final():
+	"""Reconstruye el modelo final de la fase 4 a partir de `data/df_limpio.csv`.
+
+	Respaldo para cuando los `.joblib` no se pueden deserializar, que suele
+	pasar entre versiones distintas de Python o scikit-learn (un pickle no es
+	compatible entre entornos). El modelo final es el ganador de la comparación
+	de la fase 4: Ridge con escalado, contra una referencia de mediana.
+	"""
+	from sklearn.compose import ColumnTransformer
+	from sklearn.dummy import DummyRegressor
+	from sklearn.impute import SimpleImputer
+	from sklearn.linear_model import Ridge
+	from sklearn.pipeline import Pipeline
+	from sklearn.preprocessing import OneHotEncoder, StandardScaler
+
+	try:
+		codificador = OneHotEncoder(handle_unknown="ignore", sparse_output=False)
+	except TypeError:  # scikit-learn anterior a 1.2
+		codificador = OneHotEncoder(handle_unknown="ignore", sparse=False)
+
+	df = pd.read_csv(RUTA_DATOS_LIMPIOS)
+	df["fecha_inicio_fractura"] = pd.to_datetime(df["fecha_inicio_fractura"], errors="coerce")
+
+	entradas = ENTRADAS_NUMERICAS + ENTRADAS_CATEGORICAS
+	datos = df[[*entradas, OBJETIVO, "idpozo", "fecha_inicio_fractura"]].copy()
+	train = datos.loc[datos["fecha_inicio_fractura"] < CORTE_TEMPORAL].copy()
+	test = datos.loc[datos["fecha_inicio_fractura"] >= CORTE_TEMPORAL].copy()
+	compartidos = set(train["idpozo"]).intersection(test["idpozo"])
+	train = train.loc[~train["idpozo"].isin(compartidos)].copy()
+	if train.empty or test.empty:
+		raise ValueError("La partición temporal quedó vacía; revisar data/df_limpio.csv.")
+
+	prep = ColumnTransformer(
+		[
+			("num", Pipeline([("imputer", SimpleImputer(strategy="median")), ("scaler", StandardScaler())]), ENTRADAS_NUMERICAS),
+			("cat", Pipeline([("imputer", SimpleImputer(strategy="most_frequent")), ("onehot", codificador)]), ENTRADAS_CATEGORICAS),
+		]
+	)
+	modelo = Pipeline([("prep", prep), ("regresor", Ridge(alpha=1.0))])
+	modelo.fit(train[entradas], train[OBJETIVO])
+
+	referencia = DummyRegressor(strategy="median")
+	referencia.fit(train[entradas], train[OBJETIVO])
+
+	return modelo, referencia, "Ridge", test[entradas], test[OBJETIVO]

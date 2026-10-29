@@ -22,6 +22,7 @@ from comun import (
 	OBJETIVO,
 	RUTA_ARTEFACTOS,
 	RUTA_DATOS_LIMPIOS,
+	entrenar_modelo_final,
 	importar_modelos,
 )
 
@@ -140,7 +141,16 @@ st.markdown(
 
 @st.cache_resource
 def cargar_modelos():
-	return importar_modelos("modelo", "referencia", "nombre_modelo", "X_test", "y_test")
+	"""Carga los artefactos de la fase 4; si no se deserializan, reentrena.
+
+	Los `.joblib` son pickles de Python, que no son compatibles entre versiones
+	distintas del intérprete o de scikit-learn. Ante ese caso se reconstruye el
+	mismo modelo desde `data/df_limpio.csv`, que sí es portable.
+	"""
+	try:
+		return (*importar_modelos("modelo", "referencia", "nombre_modelo", "X_test", "y_test"), False)
+	except Exception:
+		return (*entrenar_modelo_final(), True)
 
 
 @st.cache_data
@@ -151,7 +161,7 @@ def cargar_datos():
 
 
 def hay_datos():
-	return RUTA_DATOS_LIMPIOS.is_file() and RUTA_ARTEFACTOS.is_dir()
+	return RUTA_DATOS_LIMPIOS.is_file()
 
 
 pagina = st.sidebar.radio("Navegación", ["Inicio", "Estimador"], label_visibility="collapsed")
@@ -270,12 +280,17 @@ def render_estimador():
 
 	if not hay_datos():
 		st.error(
-			"Faltan datos o artefactos. Ejecutá primero la fase 3 (`fase_3_data_preparation.ipynb`) "
-			"y la fase 4 (`fase_4_modeling.ipynb`) desde la raíz del proyecto."
+			"Falta `data/df_limpio.csv`. Ejecutá primero la fase 3 (`fase_3_data_preparation.ipynb`) "
+			"desde la raíz del proyecto."
 		)
 		st.stop()
 
-	modelo, referencia, nombre_modelo, X_test, y_test = cargar_modelos()
+	modelo, referencia, nombre_modelo, X_test, y_test, reconstruido = cargar_modelos()
+	if reconstruido:
+		st.info(
+			"El modelo guardado no se pudo cargar en este entorno (versiones distintas de Python o "
+			"scikit-learn), así que se reentrenó el mismo modelo con los datos del repositorio."
+		)
 	df = cargar_datos()
 
 	st.markdown("### 1. Características de la operación")
