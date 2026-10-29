@@ -6,17 +6,27 @@ import requests
 import urllib3
 
 #------------------------------------------------------------------
-RAIZ_PROYECTO = Path.cwd()
+# Las rutas se anclan al archivo y no al directorio de trabajo: así las
+# notebooks funcionan igual sin importar desde dónde se abra Jupyter.
+RAIZ_PROYECTO = Path(__file__).resolve().parent
 RUTA_ARTEFACTOS = RAIZ_PROYECTO / "artifacts"
 
-RUTA_DATOS = Path("data") / "datos-de-fractura-de-pozos-de-hidrocarburos-adjunto-iv-actualizacin-diaria.csv"
-RUTA_DATOS_LIMPIOS = Path("data") / "df_limpio.csv"
+RUTA_DATOS = RAIZ_PROYECTO / "data" / "datos-de-fractura-de-pozos-de-hidrocarburos-adjunto-iv-actualizacin-diaria.csv"
+RUTA_DATOS_LIMPIOS = RAIZ_PROYECTO / "data" / "df_limpio.csv"
 
 COLUMNAS_FECHA = (
 	"fecha_inicio_fractura",
 	"fecha_fin_fractura",
 	"fecha_data",
 )
+
+# Especificación del modelo, compartida por la fase 4 (entrenamiento) y la
+# fase 5 (evaluación) para que ambas no puedan divergir.
+OBJETIVO = "agua_inyectada_m3"
+ENTRADAS_NUMERICAS = ["longitud_rama_horizontal_m", "cantidad_fracturas"]
+ENTRADAS_CATEGORICAS = ["tipo_terminacion"]
+CORTE_TEMPORAL = pd.Timestamp("2025-01-01")
+FECHA_REVISION = pd.Timestamp("2026-10-28")
 
 def descargar_dataset():
 	# Silenciar advertencias de certificados no verificados
