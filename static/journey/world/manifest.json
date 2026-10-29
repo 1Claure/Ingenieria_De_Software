@@ -1,0 +1,854 @@
+{
+  "version": "continuous-world-be8e3fcf32874219-camera-d6c310c2",
+  "model": "patagonia.glb",
+  "bytes": 22303296,
+  "sha256": "be8e3fcf328742192dbe2869aa47673a540d300d5e7125fd4a672df432fd0dcf",
+  "coordinateSystem": "Three.js/glTF Y-up; Blender (x,y,z) -> (x,z,-y)",
+  "note": "Instalación industrial y corte geológico ilustrativos, sin escala estratigráfica validada; no es una simulación física.",
+  "source": "assets/journey-render/v3/patagonia-realistic-90.blend",
+  "cameraStops": [
+    {
+      "progress": 0,
+      "position": [
+        100.0,
+        5.0,
+        -30.0
+      ],
+      "target": [
+        18.0,
+        10.0,
+        -20.0
+      ],
+      "fov": 26.49961,
+      "lens": 43,
+      "filmOffset": -8.64,
+      "name": "superficie"
+    },
+    {
+      "progress": 0.08,
+      "position": [
+        100.0,
+        12.0,
+        -3.0
+      ],
+      "target": [
+        20.5,
+        5.0,
+        -14.0
+      ],
+      "fov": 26.49961,
+      "lens": 43,
+      "filmOffset": -8.64,
+      "name": "salida_elevada"
+    },
+    {
+      "progress": 0.16,
+      "position": [
+        99.0,
+        11.0,
+        28.0
+      ],
+      "target": [
+        23.0,
+        0.0,
+        -8.0
+      ],
+      "fov": 26.49961,
+      "lens": 43,
+      "filmOffset": -8.64,
+      "name": "aproximacion"
+    },
+    {
+      "progress": 0.3333333333333333,
+      "position": [
+        91.0,
+        2.0,
+        50.0
+      ],
+      "target": [
+        27.0,
+        -15.0,
+        3.0
+      ],
+      "fov": 25.9179,
+      "lens": 44,
+      "filmOffset": -8.64,
+      "name": "descenso"
+    },
+    {
+      "progress": 0.5,
+      "position": [
+        87.0,
+        -10.0,
+        76.0
+      ],
+      "target": [
+        33.0,
+        -25.0,
+        6.0
+      ],
+      "fov": 25.36077,
+      "lens": 45,
+      "filmOffset": -8.64,
+      "name": "curva"
+    },
+    {
+      "progress": 0.6666666666666666,
+      "position": [
+        85.0,
+        -25.0,
+        69.0
+      ],
+      "target": [
+        43.0,
+        -36.0,
+        6.0
+      ],
+      "fov": 23.82243,
+      "lens": 48,
+      "filmOffset": -8.64,
+      "name": "etapas"
+    },
+    {
+      "progress": 0.84,
+      "position": [
+        122.0,
+        18.0,
+        102.0
+      ],
+      "target": [
+        34.0,
+        -16.0,
+        -2.0
+      ],
+      "fov": 26.49961,
+      "lens": 43,
+      "filmOffset": -8.64,
+      "name": "ascenso"
+    },
+    {
+      "progress": 1,
+      "position": [
+        175.0,
+        64.0,
+        132.0
+      ],
+      "target": [
+        29.0,
+        -5.0,
+        -9.0
+      ],
+      "fov": 28.40927,
+      "lens": 40,
+      "filmOffset": -8.64,
+      "name": "conjunto"
+    }
+  ],
+  "chapterProgress": [
+    0,
+    0.3333333333333333,
+    0.6666666666666666,
+    1
+  ],
+  "waterPath3D": [
+    [
+      9.0,
+      -0.1,
+      6.63
+    ],
+    [
+      9.0,
+      -28.0,
+      6.63
+    ],
+    [
+      9.00694,
+      -28.35334,
+      6.63
+    ],
+    [
+      9.02774,
+      -28.70613,
+      6.63
+    ],
+    [
+      9.06238,
+      -29.05784,
+      6.63
+    ],
+    [
+      9.1108,
+      -29.40791,
+      6.63
+    ],
+    [
+      9.17293,
+      -29.75581,
+      6.63
+    ],
+    [
+      9.24867,
+      -30.10101,
+      6.63
+    ],
+    [
+      9.3379,
+      -30.44296,
+      6.63
+    ],
+    [
+      9.44049,
+      -30.78115,
+      6.63
+    ],
+    [
+      9.55628,
+      -31.11505,
+      6.63
+    ],
+    [
+      9.68508,
+      -31.44415,
+      6.63
+    ],
+    [
+      9.82671,
+      -31.76794,
+      6.63
+    ],
+    [
+      9.98094,
+      -32.08591,
+      6.63
+    ],
+    [
+      10.14754,
+      -32.39759,
+      6.63
+    ],
+    [
+      10.32624,
+      -32.70249,
+      6.63
+    ],
+    [
+      10.51677,
+      -33.00013,
+      6.63
+    ],
+    [
+      10.71885,
+      -33.29007,
+      6.63
+    ],
+    [
+      10.93215,
+      -33.57185,
+      6.63
+    ],
+    [
+      11.15635,
+      -33.84503,
+      6.63
+    ],
+    [
+      11.3911,
+      -34.10921,
+      6.63
+    ],
+    [
+      11.63604,
+      -34.36396,
+      6.63
+    ],
+    [
+      11.89079,
+      -34.6089,
+      6.63
+    ],
+    [
+      12.15497,
+      -34.84365,
+      6.63
+    ],
+    [
+      12.42815,
+      -35.06785,
+      6.63
+    ],
+    [
+      12.70993,
+      -35.28115,
+      6.63
+    ],
+    [
+      12.99987,
+      -35.48323,
+      6.63
+    ],
+    [
+      13.29751,
+      -35.67376,
+      6.63
+    ],
+    [
+      13.60241,
+      -35.85246,
+      6.63
+    ],
+    [
+      13.91409,
+      -36.01906,
+      6.63
+    ],
+    [
+      14.23206,
+      -36.17329,
+      6.63
+    ],
+    [
+      14.55585,
+      -36.31492,
+      6.63
+    ],
+    [
+      14.88495,
+      -36.44372,
+      6.63
+    ],
+    [
+      15.21885,
+      -36.55951,
+      6.63
+    ],
+    [
+      15.55704,
+      -36.6621,
+      6.63
+    ],
+    [
+      15.89899,
+      -36.75133,
+      6.63
+    ],
+    [
+      16.24419,
+      -36.82707,
+      6.63
+    ],
+    [
+      16.59209,
+      -36.8892,
+      6.63
+    ],
+    [
+      16.94216,
+      -36.93762,
+      6.63
+    ],
+    [
+      17.29387,
+      -36.97226,
+      6.63
+    ],
+    [
+      17.64666,
+      -36.99306,
+      6.63
+    ],
+    [
+      18.0,
+      -37.0,
+      6.63
+    ],
+    [
+      68.0,
+      -37.0,
+      6.63
+    ]
+  ],
+  "waterStages": [
+    [
+      27.0,
+      -37.0,
+      6.63
+    ],
+    [
+      36.0,
+      -37.0,
+      6.63
+    ],
+    [
+      45.0,
+      -37.0,
+      6.63
+    ],
+    [
+      54.0,
+      -37.0,
+      6.63
+    ],
+    [
+      63.0,
+      -37.0,
+      6.63
+    ]
+  ],
+  "cutPlane": {
+    "axis": "z",
+    "position": 5.38,
+    "surfaceSide": "negative"
+  },
+  "rigCenter": [
+    9,
+    14,
+    -15
+  ],
+  "operationBounds": {
+    "min": [
+      -30,
+      -52,
+      -62
+    ],
+    "max": [
+      80,
+      31,
+      7
+    ]
+  },
+  "groups": [
+    {
+      "name": "terrain__photographic_dry_gravel_ground_cc0",
+      "role": "terrain",
+      "material": "Photographic dry gravel ground CC0",
+      "vertices": 14742,
+      "triangles": 28951,
+      "bounds": {
+        "min": [
+          -2160.00049,
+          -0.72158,
+          -3520.0
+        ],
+        "max": [
+          2560.00024,
+          8.23295,
+          6.00257
+        ]
+      }
+    },
+    {
+      "name": "geology__photographic_fractured_cliff_layer_0",
+      "role": "geology",
+      "material": "Photographic fractured cliff layer 0",
+      "vertices": 2873,
+      "triangles": 5280,
+      "bounds": {
+        "min": [
+          -180.0,
+          -7.84992,
+          4.87343
+        ],
+        "max": [
+          260.0,
+          0.04,
+          5.86582
+        ]
+      }
+    },
+    {
+      "name": "geology__photographic_fractured_cliff_layer_1",
+      "role": "geology",
+      "material": "Photographic fractured cliff layer 1",
+      "vertices": 2873,
+      "triangles": 5280,
+      "bounds": {
+        "min": [
+          -180.0,
+          -17.84992,
+          4.83746
+        ],
+        "max": [
+          260.0,
+          -6.15,
+          5.94292
+        ]
+      }
+    },
+    {
+      "name": "geology__photographic_fractured_cliff_layer_2",
+      "role": "geology",
+      "material": "Photographic fractured cliff layer 2",
+      "vertices": 2873,
+      "triangles": 5280,
+      "bounds": {
+        "min": [
+          -180.0,
+          -28.84992,
+          4.83746
+        ],
+        "max": [
+          260.0,
+          -16.15,
+          5.95095
+        ]
+      }
+    },
+    {
+      "name": "geology__photographic_fractured_cliff_layer_3",
+      "role": "geology",
+      "material": "Photographic fractured cliff layer 3",
+      "vertices": 2873,
+      "triangles": 5280,
+      "bounds": {
+        "min": [
+          -180.0,
+          -36.84992,
+          4.78449
+        ],
+        "max": [
+          260.0,
+          -27.15,
+          5.89222
+        ]
+      }
+    },
+    {
+      "name": "geology__photographic_fractured_cliff_layer_4",
+      "role": "geology",
+      "material": "Photographic fractured cliff layer 4",
+      "vertices": 2873,
+      "triangles": 5280,
+      "bounds": {
+        "min": [
+          -180.0,
+          -52.84992,
+          4.88124
+        ],
+        "max": [
+          260.0,
+          -35.15,
+          5.88846
+        ]
+      }
+    },
+    {
+      "name": "geology__photographic_fractured_cliff_layer_5",
+      "role": "geology",
+      "material": "Photographic fractured cliff layer 5",
+      "vertices": 1989,
+      "triangles": 3520,
+      "bounds": {
+        "min": [
+          -180.0,
+          -150.84991,
+          4.77549
+        ],
+        "max": [
+          260.0,
+          -51.15,
+          5.95011
+        ]
+      }
+    },
+    {
+      "name": "terrain__dry_silvery_steppe_foliage",
+      "role": "terrain",
+      "material": "Dry silvery steppe foliage",
+      "vertices": 4800,
+      "triangles": 4800,
+      "bounds": {
+        "min": [
+          -65.13978,
+          -0.1057,
+          -129.51141
+        ],
+        "max": [
+          109.63823,
+          5.09928,
+          4.22029
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__stained_cast_concrete",
+      "role": "infrastructure",
+      "material": "Stained cast concrete",
+      "vertices": 56,
+      "triangles": 108,
+      "bounds": {
+        "min": [
+          3.8,
+          0.0,
+          -19.6
+        ],
+        "max": [
+          14.2,
+          0.48,
+          -10.4
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__dark_oxidized_structural_metal",
+      "role": "infrastructure",
+      "material": "Dark oxidized structural metal",
+      "vertices": 16260,
+      "triangles": 31788,
+      "bounds": {
+        "min": [
+          -20.85,
+          0.0,
+          -42.0
+        ],
+        "max": [
+          65.55,
+          29.125,
+          4.1
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__worn_checker_steel_plate_cc0",
+      "role": "infrastructure",
+      "material": "Worn checker steel plate CC0",
+      "vertices": 1008,
+      "triangles": 1944,
+      "bounds": {
+        "min": [
+          1.29,
+          0.31,
+          -18.75
+        ],
+        "max": [
+          13.5,
+          20.08,
+          -11.25
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__galvanized_structural_steel",
+      "role": "infrastructure",
+      "material": "Galvanized structural steel",
+      "vertices": 61628,
+      "triangles": 120732,
+      "bounds": {
+        "min": [
+          -30.73619,
+          -6.83771,
+          -69.22504
+        ],
+        "max": [
+          73.72701,
+          32.02743,
+          38.34021
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__weathered_safety_coating",
+      "role": "infrastructure",
+      "material": "Weathered safety coating",
+      "vertices": 3816,
+      "triangles": 7548,
+      "bounds": {
+        "min": [
+          1.27279,
+          1.42065,
+          -18.64378
+        ],
+        "max": [
+          47.395,
+          21.23405,
+          -11.35622
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__photographic_dry_gravel_ground_cc0",
+      "role": "infrastructure",
+      "material": "Photographic dry gravel ground CC0",
+      "vertices": 1432,
+      "triangles": 2832,
+      "bounds": {
+        "min": [
+          22.55,
+          0.005,
+          -28.8
+        ],
+        "max": [
+          52.75,
+          0.71,
+          -9.45
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__weathered_tank_off-white_enamel",
+      "role": "infrastructure",
+      "material": "Weathered tank off-white enamel",
+      "vertices": 2440,
+      "triangles": 4776,
+      "bounds": {
+        "min": [
+          -20.75,
+          0.1,
+          -48.25
+        ],
+        "max": [
+          65.4,
+          9.45,
+          -1.25
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__scratched_blue_machinery_coating_cc0",
+      "role": "infrastructure",
+      "material": "Scratched blue machinery coating CC0",
+      "vertices": 1616,
+      "triangles": 3148,
+      "bounds": {
+        "min": [
+          -11.275,
+          0.225,
+          -38.27
+        ],
+        "max": [
+          65.35,
+          2.675,
+          2.45
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__deep_blue_glazing",
+      "role": "infrastructure",
+      "material": "Deep blue glazing",
+      "vertices": 1568,
+      "triangles": 3024,
+      "bounds": {
+        "min": [
+          -19.25,
+          1.275,
+          -45.5
+        ],
+        "max": [
+          36.65,
+          3.325,
+          -15.205
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__warm_practical_lamps",
+      "role": "infrastructure",
+      "material": "Warm practical lamps",
+      "vertices": 224,
+      "triangles": 432,
+      "bounds": {
+        "min": [
+          2.45,
+          7.42,
+          -17.825
+        ],
+        "max": [
+          48.15,
+          7.58,
+          -8.475
+        ]
+      }
+    },
+    {
+      "name": "well__galvanized_structural_steel",
+      "role": "well",
+      "material": "Galvanized structural steel",
+      "vertices": 344,
+      "triangles": 672,
+      "bounds": {
+        "min": [
+          8.72,
+          -37.28,
+          6.1
+        ],
+        "max": [
+          68.0,
+          -0.1,
+          6.66
+        ]
+      }
+    },
+    {
+      "name": "water__water_reflection_in_section",
+      "role": "water",
+      "material": "Water reflection in section",
+      "vertices": 1144,
+      "triangles": 1792,
+      "bounds": {
+        "min": [
+          8.925,
+          -43.31369,
+          6.555
+        ],
+        "max": [
+          68.0,
+          -0.1,
+          6.7349
+        ]
+      }
+    },
+    {
+      "name": "well__dark_oxidized_structural_metal",
+      "role": "well",
+      "material": "Dark oxidized structural metal",
+      "vertices": 1872,
+      "triangles": 3692,
+      "bounds": {
+        "min": [
+          8.67,
+          -26.08,
+          6.05
+        ],
+        "max": [
+          9.33,
+          -1.92,
+          6.71
+        ]
+      }
+    },
+    {
+      "name": "infrastructure__protective_pipe_jacket",
+      "role": "infrastructure",
+      "material": "Protective pipe jacket",
+      "vertices": 3840,
+      "triangles": 7488,
+      "bounds": {
+        "min": [
+          -5.135,
+          0.02999,
+          -47.81621
+        ],
+        "max": [
+          65.67,
+          1.17,
+          2.87
+        ]
+      }
+    }
+  ],
+  "triangles": 253647,
+  "vertices": 237532,
+  "sourceVertices": 133144,
+  "drawCalls": 22,
+  "textureCount": 11,
+  "imageCount": 11,
+  "materialCount": 19,
+  "textureLicense": "CC0-1.0",
+  "textureSources": [
+    "https://polyhaven.com/a/dry_ground_rocks",
+    "https://polyhaven.com/a/metal_plate",
+    "https://polyhaven.com/a/blue_metal_plate",
+    "https://polyhaven.com/a/cliff_side"
+  ],
+  "exportSeconds": 2.23
+}

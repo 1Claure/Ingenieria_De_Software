@@ -14,7 +14,7 @@ jupyterlab>=4.0
 ipython>=8.25
 
 # Despliegue (app.py)
-streamlit>=1.32
+streamlit==1.66.1
 
 # Backend (backend/main.py)
 fastapi>=0.110

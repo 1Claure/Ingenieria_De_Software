@@ -16,6 +16,8 @@ import pandas as pd
 import streamlit as st
 from sklearn.metrics import mean_absolute_error
 
+from journey_component import render_journey
+
 from comun import (
 	ENTRADAS_CATEGORICAS,
 	ENTRADAS_NUMERICAS,
@@ -107,12 +109,39 @@ def figura_panorama(df: pd.DataFrame, similares: pd.DataFrame, cantidad: float, 
 
 st.set_page_config(page_title="Agua de fractura — cuenca Neuquina", layout="wide")
 
+# La interfaz ya está en español. Evitamos que Chrome Translate reemplace
+# nodos del DOM que React necesita durante los reruns (removeChild/insertBefore).
+# Script estático: no incorpora datos del usuario ni código externo.
+st.html(
+	"""
+	<script>
+	(() => {
+		const root = document.documentElement;
+		root.lang = "es";
+		root.setAttribute("translate", "no");
+		root.classList.add("notranslate");
+		if (!document.head.querySelector('meta[name="google"][content="notranslate"]')) {
+			const meta = document.createElement("meta");
+			meta.name = "google";
+			meta.content = "notranslate";
+			document.head.appendChild(meta);
+		}
+	})();
+	</script>
+	""",
+	unsafe_allow_javascript=True,
+)
+
 st.markdown(
 	f"""
 	<style>
 	.stApp {{ background-color: #FAF6F0; }}
 	h1, h2, h3 {{ color: {AZUL}; font-family: "Segoe UI", sans-serif; }}
-	.block-container {{ padding-top: 1.5rem; }}
+	.block-container {{ max-width: none; padding: 0; }}
+	[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] {{ gap: 0; }}
+	header[data-testid="stHeader"] {{ display: none; }}
+	.st-key-inicio {{ min-height: 100svh; }}
+	.st-key-estimador {{ width: min(1256px, 100%); margin: 0 auto; padding: 44px clamp(20px, 5vw, 64px) 64px; }}
 	div[data-testid="stSidebar"], section[data-testid="stSidebar"] {{ background-color: #20364E; }}
 	div[data-testid="stSidebar"] *, section[data-testid="stSidebar"] * {{ color: #F2EDE6 !important; }}
 	.hero-titulo {{ font-size: 2.6rem; font-weight: 700; color: {AZUL}; margin-bottom: 0; }}
@@ -133,6 +162,86 @@ st.markdown(
 	.dato .rotulo {{ font-size: 0.85rem; color: #6B7A88; }}
 	div[data-testid="stWidgetLabel"] p {{ min-height: 1.5em; margin-bottom: 0; }}
 	.pie {{ color: #8A97A3; font-size: 0.82rem; margin-top: 2rem; }}
+	/* Presentation only: native widgets and all calculations stay unchanged. */
+	.st-key-estimador {{
+		width: min(1280px, 100%); padding: 56px clamp(24px, 5vw, 64px) 72px;
+		color: #233c49; font-family: "Segoe UI", Arial, sans-serif;
+	}}
+	.st-key-estimador [data-testid="stVerticalBlock"] {{ gap: 1rem; }}
+	.st-key-estimador > [data-testid="stVerticalBlock"] {{ gap: 1rem; }}
+	.st-key-estimador [data-testid="stMarkdownContainer"] p {{ line-height: 1.75; }}
+	.st-key-estimador [data-testid="stCaptionContainer"] p {{ color: #687a82; font-size: .8rem; line-height: 1.75; }}
+	.st-key-estimador hr {{ border-color: #d4d8d4; margin: 0 0 12px; }}
+	.st-key-estimador .hero-titulo {{
+		font-size: clamp(32px, 3.3vw, 48px); line-height: 1.12; letter-spacing: -.045em;
+		font-weight: 500; color: #17313f; margin: 18px 0 0;
+	}}
+	.st-key-estimador .hero-bajada {{ font-size: 1.05rem; line-height: 1.65; color: #5c717b; margin: 0 0 6px; }}
+	.st-key-estimador h3 {{
+		font-size: clamp(21px, 2vw, 26px); font-weight: 550; line-height: 1.3;
+		letter-spacing: -.025em; color: #183543; border-top: 1px solid #d4d8d4;
+		padding: 28px 0 0; margin: 24px 0 5px;
+	}}
+	.st-key-estimador [data-testid="stAlert"] {{ background: transparent; border: 0; padding: 0; }}
+	.st-key-estimador [data-testid="stAlertContainer"] {{
+		background: #edf0ed; border: 1px solid #d7dfda; border-left: 3px solid #82998b;
+		border-radius: 3px; padding: 16px 20px; color: #405b64;
+	}}
+	.st-key-estimador [data-testid="stAlert"] p {{ font-size: .875rem; color: inherit; line-height: 1.7; }}
+	.st-key-estimador [data-testid="stAlertContentInfo"] {{ color: #405b64; }}
+	.st-key-estimador [data-testid="stAlertContainer"]:has([data-testid="stAlertContentWarning"]) {{ background: #faf0dd; border-left-color: #b87537; }}
+	.st-key-estimador [data-testid="stHorizontalBlock"] {{ gap: 24px; }}
+	.st-key-estimador [data-testid="stWidgetLabel"] p {{ font-size: .83rem; font-weight: 550; color: #324e5a; padding-bottom: 6px; }}
+	.st-key-estimador [data-testid="stNumberInputContainer"],
+	.st-key-estimador [data-testid="stSelectbox"] .react-aria-ComboBox > [role="group"],
+	.st-key-estimador [data-baseweb="select"] > div {{
+		background: #fffefa; border: 1px solid #bdc9cb; border-radius: 4px;
+		min-height: 54px; box-shadow: 0 2px 3px #17313f03;
+	}}
+	.st-key-estimador [data-testid="stNumberInputContainer"]:focus-within,
+	.st-key-estimador [data-testid="stSelectbox"] .react-aria-ComboBox > [role="group"]:focus-within,
+	.st-key-estimador [data-baseweb="select"]:focus-within > div {{
+		border-color: #a65b38; box-shadow: 0 0 0 2px #a65b381b;
+	}}
+	.st-key-estimador [data-testid="stNumberInput"] input {{
+		font-size: 1.13rem; font-weight: 500; color: #193847; font-variant-numeric: tabular-nums;
+		padding-left: 16px; min-height: 52px;
+	}}
+	.st-key-estimador [data-testid="stNumberInput"] button {{ color: #607782; background: transparent; }}
+	.st-key-estimador [data-testid="stNumberInput"] button:hover {{ background: #edf0ec; color: #183543; }}
+	.st-key-estimador [data-baseweb="select"] {{ font-size: .97rem; color: #193847; }}
+	.st-key-estimador [data-testid="stSelectbox"] input {{ min-height: 52px; font-size: 1rem; padding-left: 16px; background: transparent; color: #193847; }}
+	.st-key-estimador .estimado {{
+		background: #163443; border: 1px solid #163443; border-top: 3px solid #ad7452;
+		border-radius: 4px; padding: 27px 30px 30px; min-height: 155px; color: #faf5e9;
+	}}
+	.st-key-estimador .estimado .etiqueta {{ font-size: .7rem; letter-spacing: .12em; opacity: 1; color: #cbd7d8; line-height: 1.65; }}
+	.st-key-estimador .estimado .numero {{
+		font-size: clamp(38px, 3.6vw, 52px); font-weight: 450; letter-spacing: -.04em;
+		font-variant-numeric: tabular-nums; line-height: 1.2; margin-top: 12px;
+	}}
+	.st-key-estimador [data-testid="stMetric"] {{ padding: 8px 0 14px 20px; border-left: 1px solid #cbd5d3; }}
+	.st-key-estimador [data-testid="stMetricLabel"] {{ color: #627680; font-size: .78rem; line-height: 1.5; }}
+	.st-key-estimador [data-testid="stMetricValue"] {{ color: #203e4b; font-size: clamp(26px, 2.4vw, 34px); font-weight: 450; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }}
+	.st-key-estimador [data-testid="stDataFrame"] {{ border: 1px solid #cbd4d3; border-radius: 4px; overflow: visible; background: #fffefa; }}
+	.st-key-estimador [data-testid="stImage"] {{ border: 1px solid #d8ddda; border-radius: 4px; padding: 18px 12px 12px; background: #fff; }}
+	.st-key-estimador [data-testid="stExpander"] {{ margin-top: 14px; }}
+	.st-key-estimador [data-testid="stExpander"] details {{ border: 1px solid #cbd4d0; border-radius: 4px; background: #f1f1e9; }}
+	.st-key-estimador [data-testid="stExpander"] summary {{ padding: 17px 20px; color: #203e4b; }}
+	.st-key-estimador [data-testid="stExpander"] summary p {{ font-weight: 550; font-size: .9rem; }}
+	.st-key-estimador [data-testid="stExpanderDetails"] {{ padding: 4px 22px 20px; }}
+	.st-key-estimador .pie {{ font-size: .75rem; color: #6d7e85; border-top: 1px solid #d4d8d4; padding-top: 23px; margin-top: 28px; line-height: 1.85; }}
+	@media (max-width: 760px) {{
+		.st-key-estimador {{ padding: 34px 24px 46px; }}
+		.st-key-estimador .hero-titulo {{ font-size: 34px; margin-top: 10px; }}
+		.st-key-estimador .hero-bajada {{ font-size: 1rem; }}
+		.st-key-estimador h3 {{ margin-top: 16px; padding-top: 24px; }}
+		.st-key-estimador [data-testid="stHorizontalBlock"] {{ gap: 18px; }}
+		.st-key-estimador .estimado {{ padding: 24px; min-height: 144px; }}
+		.st-key-estimador .estimado .numero {{ font-size: 40px; }}
+		.st-key-estimador [data-testid="stMetric"] {{ padding: 8px 0 10px 16px; }}
+		.st-key-estimador [data-testid="stImage"] {{ padding: 10px 4px 6px; }}
+	}}
 	</style>
 	""",
 	unsafe_allow_html=True,
@@ -164,111 +273,8 @@ def hay_datos():
 	return RUTA_DATOS_LIMPIOS.is_file()
 
 
-pagina = st.sidebar.radio("Navegación", ["Inicio", "Estimador"], label_visibility="collapsed")
-st.sidebar.markdown(
-	"--- \n**Estimación de agua en fracturas hidráulicas**  \nReservorios shale de la "
-	"cuenca Neuquina.  \nReferencia basada en antecedentes históricos: no reemplaza los "
-	"cálculos de ingeniería."
-)
-
-
 def render_inicio():
-	st.markdown('<div class="hero-titulo">Estimar el agua de una fractura antes de ejecutarla</div>', unsafe_allow_html=True)
-	st.markdown(
-		'<div class="hero-bajada">Una referencia objetiva, a partir de 2.632 operaciones registradas en la cuenca Neuquina.</div>',
-		unsafe_allow_html=True,
-	)
-	st.image(str(RUTA_HERO), use_column_width=True)
-	st.caption(
-		"Operación de fractura hidráulica en Vaca Muerta. Foto de prensa (YPF) usada solo con fines educativos en este trabajo práctico."
-	)
-
-	st.markdown("## ¿Por qué importa esta estimación?")
-	izq, der = st.columns(2)
-	with izq:
-		st.markdown(
-			f"""
-			<div class="tarjeta">
-			<h3>El agua es el recurso que hay que planificar</h3>
-			Cada operación de fractura inyecta decenas de miles de m³ de agua. Estimar ese
-			volumen <b>antes</b> de la operación permite dimensionar el abastecimiento, el
-			almacenamiento y el transporte desde el registro histórico, y discutir el
-			presupuesto con un número a la vista.
-			</div>
-			""",
-			unsafe_allow_html=True,
-		)
-		st.markdown(
-			f"""
-			<div class="tarjeta" style="margin-top: 1rem; border-left-color: {VERDE};">
-			<h3>Contrastar contra casos reales</h3>
-			La estimación viene acompañada de los <b>casos históricos más parecidos</b>:
-			pozos con longitud, etapas y terminación comparables. Sirve para detectar
-			desvíos temprano: si el caso se aleja de todos los antecedentes, algo hay que revisar.
-			</div>
-			""",
-			unsafe_allow_html=True,
-		)
-	with der:
-		st.markdown(
-			f"""
-			<div class="tarjeta" style="border-left-color: {AZUL};">
-			<h3>Transparencia sobre los límites</h3>
-			La solución no calcula la fractura: expresa <b>qué muestran los datos</b> y hasta
-			dónde alcanza. Cuando un caso se sale del rango histórico lo dice explícitamente,
-			porque una estimación lejos de los antecedentes es poco confiable.
-			</div>
-			""",
-			unsafe_allow_html=True,
-		)
-		st.markdown(
-			f"""
-			<div class="tarjeta" style="margin-top: 1rem; border-left-color: #7A5C3E;">
-			<h3>Una herramienta de consulta simple</h3>
-			El resultado se lee en metros cúbicos, contra una referencia ingenua (la mediana
-			histórica) y contra el rango observado. Sin cajas negras: el modelo elegido es una
-			regresión lineal cuyos términos se pueden explicar uno por uno.
-			</div>
-			""",
-			unsafe_allow_html=True,
-		)
-
-	st.markdown("## Cómo funciona")
-	p1, p2, p3 = st.columns(3)
-	with p1:
-		st.markdown(
-			'<div class="paso"><div class="numero-paso">1</div><b>Cargás el caso</b><br/>'
-			"Longitud de la rama, etapas y tipo de terminación del pozo.</div>",
-			unsafe_allow_html=True,
-		)
-	with p2:
-		st.markdown(
-			'<div class="paso"><div class="numero-paso">2</div><b>El modelo estima</b><br/>'
-			"Un modelo entrenado con datos públicos estima el agua de la operación.</div>",
-			unsafe_allow_html=True,
-		)
-	with p3:
-		st.markdown(
-			'<div class="paso"><div class="numero-paso">3</div><b>Lo contrastás</b><br/>'
-			"Ves los casos históricos más parecidos y dónde se ubica el caso.</div>",
-			unsafe_allow_html=True,
-		)
-
-	st.markdown("---")
-	c1, c2, c3, c4 = st.columns(4)
-	for col, valor, rotulo in zip(
-		(c1, c2, c3, c4),
-		("2.632", "2011–2026", "8.017 m³", "0,70"),
-		("operaciones analizadas", "período del dataset", "error promedio (MAE)", "R² en la prueba temporal"),
-	):
-		col.markdown(f'<div class="dato"><div class="valor">{valor}</div><div class="rotulo">{rotulo}</div></div>', unsafe_allow_html=True)
-
-	st.markdown(
-		'<div class="pie">Proyecto académico — Ingeniería de Software, Ciclo de Complementación '
-		"de la Licenciatura en Ciencia de Datos. Datos públicos de la Secretaría de Energía "
-		"(Adjunto IV — fractura de pozos de hidrocarburos).</div>",
-		unsafe_allow_html=True,
-	)
+	render_journey(RUTA_HERO)
 
 
 def render_estimador():
@@ -375,7 +381,7 @@ def render_estimador():
 	for columna in ("distancia", "longitud (m)", "etapas", "agua observada (m³)"):
 		decimales = 3 if columna == "distancia" else 0
 		mostrar[columna] = mostrar[columna].map(lambda x: fmt(x, decimales))
-	st.dataframe(mostrar, use_container_width=True, hide_index=True)
+	st.dataframe(mostrar, width="stretch", hide_index=True)
 
 	cercano = similares.iloc[0]
 	st.markdown(
@@ -410,7 +416,15 @@ def render_estimador():
 	)
 
 
-if pagina == "Inicio":
+with st.container(key="inicio"):
 	render_inicio()
-else:
+
+with st.container(key="estimador"):
+	st.html('<div id="estimador" tabindex="-1" style="scroll-margin-top:80px"></div>')
+	st.markdown("---")
+	st.markdown("**Estimación de agua en fracturas hidráulicas**")
+	st.caption(
+		"Reservorios shale de la cuenca Neuquina. "
+		"Referencia basada en antecedentes históricos: no reemplaza los cálculos de ingeniería."
+	)
 	render_estimador()
