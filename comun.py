@@ -10,6 +10,7 @@ RAIZ_PROYECTO = Path.cwd()
 RUTA_ARTEFACTOS = RAIZ_PROYECTO / "artifacts"
 
 RUTA_DATOS = Path("data") / "datos-de-fractura-de-pozos-de-hidrocarburos-adjunto-iv-actualizacin-diaria.csv"
+RUTA_DATOS_LIMPIOS = Path("data") / "df_limpio.csv"
 
 COLUMNAS_FECHA = (
 	"fecha_inicio_fractura",
