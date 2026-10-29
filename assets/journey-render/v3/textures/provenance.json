@@ -1,0 +1,210 @@
+{
+  "provider": "Poly Haven",
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "api_terms": "https://github.com/Poly-Haven/Public-API/blob/master/ToS.md",
+  "downloaded_utc": "2026-10-29T11:05:40.453213+00:00",
+  "assets": [
+    {
+      "id": "dry_ground_rocks",
+      "source": "https://polyhaven.com/a/dry_ground_rocks",
+      "api": "https://api.polyhaven.com/files/dry_ground_rocks",
+      "license": "CC0-1.0",
+      "maps": [
+        {
+          "kind": "diffuse",
+          "file": "dry_ground_rocks/dry_ground_rocks_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dry_ground_rocks/dry_ground_rocks_diff_1k.jpg",
+          "bytes": 826834,
+          "md5": "7cc10e3eb12ce7bb8235d3e3c3041ded",
+          "sha256": "491ac5be54859171730c620ad768a615f600b81ce00d83bbeab8a7aed7b199d8",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "sRGB"
+        },
+        {
+          "kind": "roughness",
+          "file": "dry_ground_rocks/dry_ground_rocks_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dry_ground_rocks/dry_ground_rocks_rough_1k.jpg",
+          "bytes": 454494,
+          "md5": "0f5d1be1483fc6ccd5971a724b178129",
+          "sha256": "7138e6101ccc994eab22d9b02289e72668d2b2c0863e22141cb42b1043e9f122",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        },
+        {
+          "kind": "normal_gl",
+          "file": "dry_ground_rocks/dry_ground_rocks_nor_gl_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dry_ground_rocks/dry_ground_rocks_nor_gl_1k.jpg",
+          "bytes": 1263934,
+          "md5": "7f2d336686d4b5e380ba76c5e3ddd4bb",
+          "sha256": "0bba49a710d0d1f7497ac7c72db2f0ed622ed07397539ce2d5ba756bf5fb3051",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        }
+      ]
+    },
+    {
+      "id": "metal_plate",
+      "source": "https://polyhaven.com/a/metal_plate",
+      "api": "https://api.polyhaven.com/files/metal_plate",
+      "license": "CC0-1.0",
+      "maps": [
+        {
+          "kind": "diffuse",
+          "file": "metal_plate/metal_plate_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/metal_plate/metal_plate_diff_1k.jpg",
+          "bytes": 692234,
+          "md5": "bd9daf4c04046ca392a38b8df955ed26",
+          "sha256": "c6b6739eac2c75ccc898e753d7833df24eafbdb9aa92fb6eabfb92abd1a680a5",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "sRGB"
+        },
+        {
+          "kind": "roughness",
+          "file": "metal_plate/metal_plate_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/metal_plate/metal_plate_rough_1k.jpg",
+          "bytes": 775206,
+          "md5": "6e1c8672d804b90546a23db621515b16",
+          "sha256": "756308485ce742a52831453c296452f48cf0adead7d85adfffd34c08dce23ec1",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        },
+        {
+          "kind": "normal_gl",
+          "file": "metal_plate/metal_plate_nor_gl_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/metal_plate/metal_plate_nor_gl_1k.jpg",
+          "bytes": 770307,
+          "md5": "d379e66130ad6ccff217ac9b13de935d",
+          "sha256": "994f851a84d52b51e97906021a1b7070ee6eac9a789fef041132268de47d8e6b",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        },
+        {
+          "kind": "metallic",
+          "file": "metal_plate/metal_plate_metal_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/metal_plate/metal_plate_metal_1k.jpg",
+          "bytes": 884738,
+          "md5": "d6d59f8873eec1777a0b30985c2534c6",
+          "sha256": "ad13cd09b12dd7b14efd3796f17d9be969644497620d9351cb7cafb450979b19",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        }
+      ]
+    },
+    {
+      "id": "blue_metal_plate",
+      "source": "https://polyhaven.com/a/blue_metal_plate",
+      "api": "https://api.polyhaven.com/files/blue_metal_plate",
+      "license": "CC0-1.0",
+      "maps": [
+        {
+          "kind": "diffuse",
+          "file": "blue_metal_plate/blue_metal_plate_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/blue_metal_plate/blue_metal_plate_diff_1k.jpg",
+          "bytes": 395923,
+          "md5": "a906d0e554596fb76c6969f2f644c5e6",
+          "sha256": "a0162bffce47d4a35613a12af22571b28c18412dc5805cbb69eac343554ef750",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "sRGB"
+        },
+        {
+          "kind": "roughness",
+          "file": "blue_metal_plate/blue_metal_plate_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/blue_metal_plate/blue_metal_plate_rough_1k.jpg",
+          "bytes": 402450,
+          "md5": "76c3911d8ad2416e4db3104a2ef831c7",
+          "sha256": "37168cf57144db28dd0743dab47fbebc09147fac919d5e2b5610b069c0b13a46",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        },
+        {
+          "kind": "normal_gl",
+          "file": "blue_metal_plate/blue_metal_plate_nor_gl_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/blue_metal_plate/blue_metal_plate_nor_gl_1k.jpg",
+          "bytes": 238025,
+          "md5": "f14c0f01832f8b18c39f07e4b5d6f749",
+          "sha256": "970f0273c9e2e3b4fc8338bfd58a28c413b70ac4d1734d9dc8a136724bde56e6",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        }
+      ]
+    },
+    {
+      "id": "cliff_side",
+      "source": "https://polyhaven.com/a/cliff_side",
+      "api": "https://api.polyhaven.com/files/cliff_side",
+      "license": "CC0-1.0",
+      "maps": [
+        {
+          "kind": "diffuse",
+          "file": "cliff_side/cliff_side_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cliff_side/cliff_side_diff_1k.jpg",
+          "bytes": 859756,
+          "md5": "a64986e5f858e4f8df30f0394ededd78",
+          "sha256": "5c6858541108fc34e5726ecf4d8d942d6301155c489e7341619260f2909570c5",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "sRGB"
+        },
+        {
+          "kind": "roughness",
+          "file": "cliff_side/cliff_side_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cliff_side/cliff_side_rough_1k.jpg",
+          "bytes": 422579,
+          "md5": "337e2fa00b23743f6686c7345cc9b227",
+          "sha256": "9d62079c5fc52d1a0dc659d2ad7f807e489dea18b5cb1a130bcea276fdc9f550",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        },
+        {
+          "kind": "normal_gl",
+          "file": "cliff_side/cliff_side_nor_gl_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cliff_side/cliff_side_nor_gl_1k.jpg",
+          "bytes": 1007837,
+          "md5": "604fd4101fe5ad92181c22b96ed795c5",
+          "sha256": "28583860810a7d6d8ffddeaaff463408fc580338fd5a92c67b058207e75375a3",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color"
+        }
+      ]
+    }
+  ]
+}

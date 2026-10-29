@@ -1,0 +1,101 @@
+<div class="journey-root" data-scene-state="static">
+  <header class="journey-hero">
+    <div class="journey-hero-media">
+      <img class="journey-hero-image" data-hero-image alt="Instalación de YPF en el paisaje de Vaca Muerta" width="1600" height="800" fetchpriority="high" />
+      <div class="journey-hero-shade" aria-hidden="true"></div>
+      <div class="journey-hero-copy">
+        <h1>Estimar el agua<br class="journey-title-break" /> de una fractura <span>antes de ejecutarla</span></h1>
+        <p class="journey-lead">Una referencia objetiva, a partir de 2.632 operaciones registradas en la cuenca Neuquina.</p>
+        <a class="journey-button" href="#estimador" data-open-estimator>Abrir estimador <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="journey-hero-coordinate" aria-hidden="true">VACA MUERTA</div>
+    </div>
+    <p class="journey-photo-credit">Operación de fractura hidráulica en Vaca Muerta. Foto de prensa (YPF) usada solo con fines educativos en este trabajo práctico.</p>
+  </header>
+
+  <section class="journey-story" aria-labelledby="journey-story-title">
+    <div class="journey-section-heading">
+      <p class="journey-eyebrow">UN RECORRIDO POR LA OPERACIÓN</p>
+      <h2 id="journey-story-title">¿Por qué importa esta estimación?</h2>
+    </div>
+
+    <div class="journey-track" data-journey-track>
+      <div class="journey-chapters">
+        <article class="journey-chapter is-current" data-chapter="0" aria-labelledby="journey-chapter-1">
+          <div class="journey-chapter-marker">EL RECURSO</div>
+          <h3 id="journey-chapter-1">El agua es el recurso que hay que planificar</h3>
+          <p>Cada operación de fractura inyecta decenas de miles de m³ de agua. Estimar ese volumen <b>antes</b> de la operación permite dimensionar el abastecimiento, el almacenamiento y el transporte desde el registro histórico, y discutir el presupuesto con un número a la vista.</p>
+        </article>
+
+        <article class="journey-chapter" data-chapter="1" aria-labelledby="journey-chapter-2">
+          <div class="journey-chapter-marker">LOS ANTECEDENTES</div>
+          <h3 id="journey-chapter-2">Contrastar contra casos reales</h3>
+          <p>La estimación viene acompañada de los <b>casos históricos más parecidos</b>: pozos con longitud, etapas y terminación comparables. Sirve para detectar desvíos temprano: si el caso se aleja de todos los antecedentes, algo hay que revisar.</p>
+        </article>
+
+        <article class="journey-chapter" data-chapter="2" aria-labelledby="journey-chapter-3">
+          <div class="journey-chapter-marker">EL ALCANCE</div>
+          <h3 id="journey-chapter-3">Transparencia sobre los límites</h3>
+          <p>La solución no calcula la fractura: expresa <b>qué muestran los datos</b> y hasta dónde alcanza. Cuando un caso se sale del rango histórico lo dice explícitamente, porque una estimación lejos de los antecedentes es poco confiable.</p>
+        </article>
+
+        <article class="journey-chapter" data-chapter="3" aria-labelledby="journey-chapter-4">
+          <div class="journey-chapter-marker">LA DECISIÓN</div>
+          <h3 id="journey-chapter-4">Una herramienta de consulta simple</h3>
+          <p>El resultado se lee en metros cúbicos, contra una referencia ingenua (la mediana histórica) y contra el rango observado. Sin cajas negras: el modelo elegido es una regresión lineal cuyos términos se pueden explicar uno por uno.</p>
+        </article>
+      </div>
+
+      <aside class="journey-scene" aria-label="Esquema del recorrido de una operación de fractura hidráulica" aria-describedby="journey-scene-description">
+        <p class="journey-visually-hidden" id="journey-scene-description">Un único entorno tridimensional de una instalación en superficie y su pozo horizontal. La cámara desciende junto a los estratos y sigue el mismo pozo al avanzar o retroceder por la página. La geometría es ilustrativa: no representa dimensiones reales, geología medida ni una simulación de la fractura.</p>
+        <div class="journey-scene-viewport" data-scene-viewport>
+          <canvas class="journey-render-background" data-render-background aria-hidden="true"></canvas>
+          <img class="journey-render-poster" data-render-poster alt="Fotografía aérea de una instalación de perforación en Vaca Muerta" width="1920" height="1280" />
+          <svg class="journey-static-scene" viewBox="0 0 640 520" role="img" aria-labelledby="journey-static-title journey-static-description">
+            <title id="journey-static-title">Pozo horizontal y estratos del subsuelo</title>
+            <desc id="journey-static-description">Esquema conceptual: un pozo desciende desde la instalación en superficie y continúa horizontalmente en un estrato. Las marcas azules representan etapas y agua. El dibujo no representa profundidades ni dimensiones reales.</desc>
+            <defs>
+              <pattern id="journey-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M 32 0 L 0 0 0 32" fill="none" stroke="#c8e4ee" stroke-opacity=".06" /></pattern>
+              <linearGradient id="journey-earth" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b28863"/><stop offset="1" stop-color="#735d47"/></linearGradient>
+              <linearGradient id="journey-water" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#9be2e2"/><stop offset="1" stop-color="#50afb9"/></linearGradient>
+            </defs>
+            <rect width="640" height="520" fill="url(#journey-grid)"/>
+            <g transform="translate(0 8)">
+              <path d="M88 210 364 146 560 223 284 292Z" fill="#b49c75" stroke="#d0ba91" stroke-width="1.5"/>
+              <path d="M88 210 284 292 284 333 88 251Z" fill="#8b755c"/>
+              <path d="M284 292 560 223 560 264 284 333Z" fill="#9f876a"/>
+              <path d="M88 251 284 333 284 375 88 293Z" fill="#685747"/>
+              <path d="M284 333 560 264 560 306 284 375Z" fill="#7d6c56"/>
+              <path d="M88 293 284 375 284 419 88 337Z" fill="#a17855"/>
+              <path d="M284 375 560 306 560 350 284 419Z" fill="url(#journey-earth)"/>
+              <path d="M88 337 284 419 284 458 88 376Z" fill="#4e5049"/>
+              <path d="M284 419 560 350 560 389 284 458Z" fill="#61685b"/>
+              <g fill="none" stroke="#c7b393" stroke-opacity=".28"><path d="M88 229 284 311 560 242"/><path d="M88 273 284 355 560 286"/><path d="M88 316 284 398 560 328"/><path d="M88 357 284 438 560 369"/></g>
+              <path d="M242 210 242 342 Q242 370 281 383 L473 335" fill="none" stroke="#102a3c" stroke-width="13"/>
+              <path d="M242 210 242 342 Q242 370 281 383 L473 335" fill="none" stroke="url(#journey-water)" stroke-width="5" stroke-linecap="round"/>
+              <g stroke="#70c4ca" stroke-width="2" opacity=".85"><path d="m309 376 -12 -22 m12 22 9 26"/><path d="m345 367 -13 -24 m13 24 10 27"/><path d="m381 358 -13 -24 m13 24 10 28"/><path d="m417 349 -12 -25 m12 25 10 27"/><path d="m452 340 -11 -23 m11 23 9 25"/></g>
+              <g fill="#c2eff0"><circle cx="242" cy="257" r="4"/><circle cx="242" cy="303" r="4"/><circle cx="282" cy="383" r="4"/><circle cx="345" cy="367" r="4"/><circle cx="417" cy="349" r="4"/></g>
+              <path d="M218 214 232 109 250 109 266 214 M221 191 261 191 M225 169 257 169 M228 148 254 148 M230 128 252 128 M218 214 257 169 228 148 250 109 M266 214 225 169 254 148 232 109" fill="none" stroke="#d6ac6c" stroke-width="2.4" stroke-linejoin="round"/>
+              <path d="M213 215 243 225 274 217 244 207Z" fill="#d4b685"/>
+              <path d="M321 188 356 178 378 187 343 197Z" fill="#c4d8dc"/><path d="M321 188 343 197 343 220 321 211Z" fill="#6d929e"/><path d="M343 197 378 187 378 210 343 220Z" fill="#8fb2bc"/>
+              <path d="M343 220 287 231 242 218" fill="none" stroke="#9be2e2" stroke-width="3"/>
+              <path d="M455 160 455 181 379 200" fill="none" stroke="#a7c7d2" stroke-width="1"/><text x="456" y="150" fill="#c4dce3" font-family="sans-serif" font-size="12">Superficie</text>
+              <path d="M131 122 169 122 231 170" fill="none" stroke="#a7c7d2" stroke-width="1"/><text x="95" y="111" fill="#c4dce3" font-family="sans-serif" font-size="12">Pozo</text>
+              <path d="M465 402 465 374 420 350" fill="none" stroke="#a7c7d2" stroke-width="1"/><text x="431" y="425" fill="#c4dce3" font-family="sans-serif" font-size="12">Etapas de fractura</text>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="journey-how" aria-labelledby="journey-how-title">
+    <div class="journey-section-heading"><p class="journey-eyebrow">DEL CASO A LA REFERENCIA</p><h2 id="journey-how-title">Cómo funciona</h2></div>
+    <ol class="journey-steps">
+      <li><span class="journey-step-number">1</span><div><h3>Cargás el caso</h3><p>Longitud de la rama, etapas y tipo de terminación del pozo.</p></div></li>
+      <li><span class="journey-step-number">2</span><div><h3>El modelo estima</h3><p>Un modelo entrenado con datos públicos estima el agua de la operación.</p></div></li>
+      <li><span class="journey-step-number">3</span><div><h3>Lo contrastás</h3><p>Ves los casos históricos más parecidos y dónde se ubica el caso.</p></div></li>
+    </ol>
+  </section>
+
+</div>

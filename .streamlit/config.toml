@@ -1,0 +1,15 @@
+[server]
+enableStaticServing = true
+
+[theme]
+base = "light"
+primaryColor = "#C0622F"
+backgroundColor = "#FAF6F0"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#24405E"
+font = "sans serif"
+
+[theme.sidebar]
+backgroundColor = "#20364E"
+secondaryBackgroundColor = "#2A4662"
+textColor = "#F2EDE6"

@@ -1,0 +1,19 @@
+{
+  "version": "continuous-world-be8e3fcf32874219",
+  "sha256": "be8e3fcf328742192dbe2869aa47673a540d300d5e7125fd4a672df432fd0dcf",
+  "bytes": 22303296,
+  "triangles": 253647,
+  "vertices": 237532,
+  "drawCalls": 22,
+  "materials": 19,
+  "textures": 11,
+  "checks": [
+    "GLB 2.0 header and chunks",
+    "all buffer views in bounds",
+    "SHA256 matches manifest",
+    "all materials/textures embedded",
+    "all meshes have UV, normal, tangent and vertex color",
+    "four chapter positions and seven finite camera stops",
+    "no animation or external decoder extension"
+  ]
+}
