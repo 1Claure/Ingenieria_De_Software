@@ -257,9 +257,9 @@ def cargar_modelos():
 	mismo modelo desde `data/df_limpio.csv`, que sí es portable.
 	"""
 	try:
-		return (*importar_modelos("modelo", "referencia", "nombre_modelo", "X_test", "y_test"), False)
+		return importar_modelos("modelo", "referencia", "nombre_modelo", "X_test", "y_test")
 	except Exception:
-		return (*entrenar_modelo_final(), True)
+		return entrenar_modelo_final()
 
 
 @st.cache_data
@@ -291,12 +291,7 @@ def render_estimador():
 		)
 		st.stop()
 
-	modelo, referencia, nombre_modelo, X_test, y_test, reconstruido = cargar_modelos()
-	if reconstruido:
-		st.info(
-			"El modelo guardado no se pudo cargar en este entorno (versiones distintas de Python o "
-			"scikit-learn), así que se reentrenó el mismo modelo con los datos del repositorio."
-		)
+	modelo, referencia, nombre_modelo, X_test, y_test = cargar_modelos()
 	df = cargar_datos()
 
 	st.markdown("### 1. Características de la operación")
