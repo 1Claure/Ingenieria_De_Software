@@ -393,7 +393,11 @@ def render_estimador():
 	)
 
 	st.markdown("### 4. Panorama del histórico")
-	st.pyplot(figura_panorama(df, similares, entradas["cantidad_fracturas"], entradas["longitud_rama_horizontal_m"], resultado["estimado_m3"]))
+	figura = figura_panorama(df, similares, entradas["cantidad_fracturas"], entradas["longitud_rama_horizontal_m"], resultado["estimado_m3"])
+	try:
+		st.pyplot(figura)
+	finally:
+		plt.close(figura)
 	st.caption(
 		"Cada punto es una operación registrada. Los círculos verdes son los casos similares "
 		"y la estrella, tu caso con la estimación obtenida."
